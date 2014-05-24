@@ -12,6 +12,8 @@ var Sortable = {
   sortStart: function(e) {
     this.dragged = e.currentTarget.dataset.id;
     e.dataTransfer.effectAllowed = 'move';
+    //  As per comment @ http://webcloud.se/sortable-list-component-react-js/ regarding Firefox
+    e.dataTransfer.setData("text/html", e.currentTarget);
   },
   move: function(over,append) {
     var to = Number(over.dataset.id);
